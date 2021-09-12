@@ -42,9 +42,6 @@ MENU NAVBAR
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="../../#">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../reservation/index">Réservation</a>
-                </li>
                 %{--                <li class="nav-item">--}%
                 %{--                    <a class="nav-link" href="#">Link</a>--}%
                 %{--                </li>--}%
@@ -77,7 +74,7 @@ MENU NAVBAR
                             document.getElementById("testImage").setAttribute('src', "data:image/png;base64,"+base64String);
                         </script>
                         <p class="card-text">Jauge totale du magasin : ${magasinInstance?.placeTotale} places</p>
-                        <p class="card-text">${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")}, ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}</p>
+                        <p class="card-text">${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")} ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}</p>
                         <p class="card-text">De ${fieldValue(bean: magasinInstance, field: "horaireOuverture") } à ${fieldValue(bean: magasinInstance, field: "horaireFermeture")}.
                         <g:if test="${fieldValue(bean: magasinInstance, field: "ouvertLeMidi") == '1'}">
                             <br><b>Ouvert entre 12 et 14h !</b><br>

@@ -46,6 +46,7 @@ class MagasinController {
         [magasinInstance: Magasin.get(params.id)]
     }
 
+
     def listeResa() {
         def results = ceciEstUnTest(params.id)
         def getByHoraire = getMagasinsInFrance(params.id)
