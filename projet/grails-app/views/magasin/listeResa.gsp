@@ -1136,7 +1136,7 @@ footer {
                     <label for="nbPlace">
                         <g:message code="nbPlace.label" default="nombre de place" />
                     </label>
-                    <input type="number" id="limiteDuCompteur" name="nbPlace" max="6" value="${ReservationInstance?.nbPlace}"/>
+                    <input type="number" id="limiteDuCompteur" name="nbPlace" max="6" value="${ReservationInstance?.nbPlace}" required/>
                 </div>
 
                 <div class="fieldcontation ${hasErrors(bean: ReservationInstance, field: 'idPersonne', 'error')}">

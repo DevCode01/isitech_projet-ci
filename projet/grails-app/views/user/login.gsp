@@ -51,33 +51,33 @@ MENU NAVBAR
                         <label for="nom">
                             <g:message code="nom.label" default="Nom du magasin" />
                         </label>
-                        <g:textField name="nom" value="${magasinInstance?.nom}"/>
+                        <g:textField required="required" name="nom" value="${magasinInstance?.nom}"/>
                     </div>
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'adresse', 'error')}">
                         <label for="adresse">
                             <g:message code="adresse.label" default="Adresse" />
                         </label>
-                        <g:textField name="adresse" value="${magasinInstance?.adresse}"/>
+                        <g:textField required="required" name="adresse" value="${magasinInstance?.adresse}"/>
                     </div>
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'placeTotale', 'error')}">
                         <label for="placeTotale">
                             <g:message code="placeTotale.label" default="Superficie du commerce" />
                         </label>
-                        <input type="text" id="superficie" name="placeTotale" value="${magasinInstance?.placeTotale}"/>
+                        <input type="text" id="superficie" name="placeTotale" value="${magasinInstance?.placeTotale}" required/>
                     </div>
 
                     <div onclick="testFonction()" class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'horaireOuverture', 'error')}">
                         <label for="horaireOuverture">
                             <g:message code="horaireOuverture.label" default="Horaire d'ouverture" />
                         </label>
-                        <g:textField name="horaireOuverture" value="${magasinInstance?.horaireOuverture}"/>
+                        <g:textField required="required" name="horaireOuverture" value="${magasinInstance?.horaireOuverture}"/>
                     </div>
 
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'horaireFermeture', 'error')}">
                         <label for="horaireFermeture">
                             <g:message code="horaireFermeture.label" default="Horaire de fermeture" />
                         </label>
-                        <g:textField name="horaireFermeture" value="${magasinInstance?.horaireFermeture}"/>
+                        <g:textField required="required" name="horaireFermeture" value="${magasinInstance?.horaireFermeture}"/>
                     </div>
 
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'ouvertLeMidi', 'error')}">
@@ -94,21 +94,21 @@ MENU NAVBAR
                         <label for="idVille">
                             <g:message code="codePostal.label" default="Code postal et ville" />
                         </label>
-                        <g:select name="idVille" from="${projet.Ville.list(sort: 'nomVille')}" optionKey="id" value="${magasinInstance? magasinInstance.ville_id : ''}" noSelection="['':'Choisir un code postal']" class="mySelect" />
+                        <g:select required="required" name="idVille" from="${projet.Ville.list(sort: 'nomVille')}" optionKey="id" value="${magasinInstance? magasinInstance.ville_id : ''}" noSelection="['':'Choisir un code postal']" class="mySelect" />
                     </div>
 
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'Catégorie', 'error')}">
                         <label for="idCategorie">
                             <g:message code="categorie.label" default="Categorie" />
                         </label>
-                        <g:select name="idCategorie" from="${projet.Categorie.list()}" optionKey="id" value="${magasinInstance? magasinInstance.categorie_id : ''}" noSelection="['':'Choisir une categorie']" class="mySelect" />
+                        <g:select required="required" name="idCategorie" from="${projet.Categorie.list()}" optionKey="id" value="${magasinInstance? magasinInstance.categorie_id : ''}" noSelection="['':'Choisir une categorie']" class="mySelect" />
                     </div>
 
                     <div class="fieldcontation ${hasErrors(bean: magasinInstance, field: 'Image du magasin', 'error')}">
                         <label for="imageMagasin">
                             <g:message code="imageMagasin.label"  default="Logo du magasin" />
                         </label>
-                        <input type="file" name="imageMagasin" value="${magasinInstance? magasinInstance.imageMagasin : ''}" name="fic" size=50 />
+                        <input required="required" type="file" name="imageMagasin" value="${magasinInstance? magasinInstance.imageMagasin : ''}" name="fic" size=50 />
                     </div>
                 </fieldset>
                 <fieldset class="buttons">
