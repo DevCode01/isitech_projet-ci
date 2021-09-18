@@ -57,285 +57,278 @@ MENU NAVBAR
 <!-- Remove the container if you want to extend the Footer to full width. -->
 <body>
 
-<br><br><br>
-<script src="//cdn.jsdelivr.net/npm/less@4.1.1" >
-</script>
-<div class="time-picker-container" style="width: 100%">
-    <h5 id="testChangeMonth" style="text-align: center">Aout 2021</h5>
-
-    <script>
-        var ladate=new Date()
-        var tab_mois=new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-        var getLeMoisSuivant = ladate.getMonth()
-        var dateDebut = ladate.getDate()
-        var heureRealTime = ladate.getHours();
-        console.log("Heure : " + heureRealTime);
-        var datePlusSix = ladate.setDate((ladate.getDate() + 6))
-        document.getElementById("testChangeMonth").innerHTML = "Du " + dateDebut + " " + tab_mois[ladate.getMonth()] + " " + ladate.getFullYear() + " au " +  + ladate.getDate() + " " + tab_mois[ladate.getMonth(ladate.setDate((ladate.getDate() + 6)))] + " " + ladate.getFullYear();
-        var jourDeLaSemaine = new Date().toLocaleString('en-us', {  weekday: 'long' });
+<g:if test="${magasinInstance == null}">
+    <div class="text-center" style="padding-top: 100px; padding-left: 20px;">
+        Oup's, il semblerait qu'il n'y est rien d'intéressant ici .. on fait marche arrière ?
+    </div>
+</g:if>
+<g:else>
+    <br><br><br>
+    <script src="//cdn.jsdelivr.net/npm/less@4.1.1" >
     </script>
+    <div class="time-picker-container" style="width: 100%">
+        <h5 id="testChangeMonth" style="text-align: center">Aout 2021</h5>
+
+        <script>
+            var ladate=new Date()
+            var tab_mois=new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+            var getLeMoisSuivant = ladate.getMonth()
+            var dateDebut = ladate.getDate()
+            var heureRealTime = ladate.getHours();
+            console.log("Heure : " + heureRealTime);
+            var datePlusSix = ladate.setDate((ladate.getDate() + 6))
+            document.getElementById("testChangeMonth").innerHTML = "Du " + dateDebut + " " + tab_mois[ladate.getMonth()] + " " + ladate.getFullYear() + " au " +  + ladate.getDate() + " " + tab_mois[ladate.getMonth(ladate.setDate((ladate.getDate() + 6)))] + " " + ladate.getFullYear();
+            var jourDeLaSemaine = new Date().toLocaleString('en-us', {  weekday: 'long' });
+        </script>
 
 
-    <div class="time-picker">
-        <div class="row time-picker-header">
-            <ul class="date-slot">
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour1">Lundi</span>
-                        <span class="date-slot-date" id="dayjour1"></span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour2">Mardi</span>
-                        <span class="date-slot-date" id="dayjour2">12</span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour3">Mercredi</span>
-                        <span class="date-slot-date" id="dayjour3">13</span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour4">Jeudi</span>
-                        <span class="date-slot-date" id="dayjour4">14</span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item no-free-slot">
-                        <span class="date-slot-day" id="jour5">Vendredi</span>
-                        <span class="date-slot-date" id="dayjour5">15</span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour6">Samedi</span>
-                        <span class="date-slot-date" id="dayjour6">14</span>
-                    </div>
-                </li>
-                <li class="date-slot-wrapper">
-                    <div class="date-slot-item">
-                        <span class="date-slot-day" id="jour7">Dimanche</span>
-                        <span class="date-slot-date" id="dayjour7">14</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <div class="time-picker">
+            <div class="row time-picker-header">
+                <ul class="date-slot">
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour1">Lundi</span>
+                            <span class="date-slot-date" id="dayjour1"></span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour2">Mardi</span>
+                            <span class="date-slot-date" id="dayjour2">12</span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour3">Mercredi</span>
+                            <span class="date-slot-date" id="dayjour3">13</span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour4">Jeudi</span>
+                            <span class="date-slot-date" id="dayjour4">14</span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item no-free-slot">
+                            <span class="date-slot-day" id="jour5">Vendredi</span>
+                            <span class="date-slot-date" id="dayjour5">15</span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour6">Samedi</span>
+                            <span class="date-slot-date" id="dayjour6">14</span>
+                        </div>
+                    </li>
+                    <li class="date-slot-wrapper">
+                        <div class="date-slot-item">
+                            <span class="date-slot-day" id="jour7">Dimanche</span>
+                            <span class="date-slot-date" id="dayjour7">14</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="row">
-            <!--
+            <div class="row">
+                <!--
 ICI FAIRE BOUCLE POUR AFFICHAGE HORAIRES
 IF CONDITION POUR LE PREMIERJOUR : si heureactuelle > heure affichés, griser la case
 -->
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8prem8"></li>
-                <input id="8prem8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9prem9"></li>
-                <input id="9prem9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10prem10"></li>
-                <input id="10prem10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11prem11"></li>
-                <input id="11prem11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12prem12"></li>
-                <input id="12prem12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13prem13"></li>
-                <input id="13prem13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14prem14"></li>
-                <input id="14prem14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15prem15"></li>
-                <input id="15prem15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16prem16"></li>
-                <input id="16prem16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17prem17"></li>
-                <input id="17prem17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8deux8"></li>
-                <input id="8deux8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9deux9"></li>
-                <input id="9deux9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10deux10"></li>
-                <input id="10deux10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11deux11"></li>
-                <input id="11deux11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12deux12"></li>
-                <input id="12deux12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13deux13"></li>
-                <input id="13deux13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14deux14"></li>
-                <input id="14deux14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15deux15"></li>
-                <input id="15deux15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)"  id="16deux16"></li>
-                <input id="16deux16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17deux17"></li>
-                <input id="17deux17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8trois8"></li>
-                <input id="8trois8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9trois9"></li>
-                <input id="9trois9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10trois10"></li>
-                <input id="10trois10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11trois11"></li>
-                <input id="11trois11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12trois12"></li>
-                <input id="12trois12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13trois13"></li>
-                <input id="13trois13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14trois14"></li>
-                <input id="14trois14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15trois15"></li>
-                <input id="15trois15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16trois16"></li>
-                <input id="16trois16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17trois17"></li>
-                <input id="17trois17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8quatre8"></li>
-                <input id="8quatre8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9quatre9"></li>
-                <input id="9quatre9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10quatre10"></li>
-                <input id="10quatre10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11quatre11"></li>
-                <input id="11quatre11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12quatre12"></li>
-                <input id="12quatre12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13quatre13"></li>
-                <input id="13quatre13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14quatre14"></li>
-                <input id="14quatre14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15quatre15"></li>
-                <input id="15quatre15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16quatre16"></li>
-                <input id="16quatre16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17quatre17"></li>
-                <input id="17quatre17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8cinq8"></li>
-                <input id="8cinq8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9cinq9"></li>
-                <input id="9cinq9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10cinq10"></li>
-                <input id="10cinq10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11cinq11"></li>
-                <input id="11cinq11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12cinq12"></li>
-                <input id="12cinq127nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13cinq13"></li>
-                <input id="13cinq13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14cinq14"></li>
-                <input id="14cinq14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15cinq15"></li>
-                <input id="15cinq15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16cinq16"></li>
-                <input id="16cinq16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17cinq17"></li>
-                <input id="17cinq17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8six8"></li>
-                <input id="8six8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9six9"></li>
-                <input id="9six9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10six10"></li>
-                <input id="10six10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11six11"></li>
-                <input id="11six11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12six12"></li>
-                <input id="12six12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13six13"></li>
-                <input id="13six13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14six14"></li>
-                <input id="14six14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15six15"></li>
-                <input id="15six15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16six16"></li>
-                <input id="16six16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17six17"></li>
-                <input id="17six17nbPlace" type="hidden" >
-            </ul>
-            <ul class="time-slot">
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="8sept8"></li>
-                <input id="8sept8nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="9sept9"></li>
-                <input id="9sept9nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="10sept10"></li>
-                <input id="10sept10nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="11sept11"></li>
-                <input id="11sept11nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="12sept12"></li>
-                <input id="12sept12nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="13sept13"></li>
-                <input id="13sept13nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="14sept14"></li>
-                <input id="14sept14nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="15sept15"></li>
-                <input id="15sept15nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="16sept16"></li>
-                <input id="16sept16nbPlace" type="hidden" >
-                <li class="time-slot-item" onclick="getIdClick(this.id)" id="17sept17"></li>
-                <input id="17sept17nbPlace" type="hidden" >
-            </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8prem8"></li>
+                    <input id="8prem8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9prem9"></li>
+                    <input id="9prem9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10prem10"></li>
+                    <input id="10prem10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11prem11"></li>
+                    <input id="11prem11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12prem12"></li>
+                    <input id="12prem12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13prem13"></li>
+                    <input id="13prem13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14prem14"></li>
+                    <input id="14prem14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15prem15"></li>
+                    <input id="15prem15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16prem16"></li>
+                    <input id="16prem16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17prem17"></li>
+                    <input id="17prem17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8deux8"></li>
+                    <input id="8deux8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9deux9"></li>
+                    <input id="9deux9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10deux10"></li>
+                    <input id="10deux10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11deux11"></li>
+                    <input id="11deux11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12deux12"></li>
+                    <input id="12deux12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13deux13"></li>
+                    <input id="13deux13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14deux14"></li>
+                    <input id="14deux14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15deux15"></li>
+                    <input id="15deux15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)"  id="16deux16"></li>
+                    <input id="16deux16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17deux17"></li>
+                    <input id="17deux17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8trois8"></li>
+                    <input id="8trois8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9trois9"></li>
+                    <input id="9trois9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10trois10"></li>
+                    <input id="10trois10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11trois11"></li>
+                    <input id="11trois11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12trois12"></li>
+                    <input id="12trois12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13trois13"></li>
+                    <input id="13trois13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14trois14"></li>
+                    <input id="14trois14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15trois15"></li>
+                    <input id="15trois15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16trois16"></li>
+                    <input id="16trois16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17trois17"></li>
+                    <input id="17trois17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8quatre8"></li>
+                    <input id="8quatre8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9quatre9"></li>
+                    <input id="9quatre9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10quatre10"></li>
+                    <input id="10quatre10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11quatre11"></li>
+                    <input id="11quatre11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12quatre12"></li>
+                    <input id="12quatre12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13quatre13"></li>
+                    <input id="13quatre13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14quatre14"></li>
+                    <input id="14quatre14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15quatre15"></li>
+                    <input id="15quatre15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16quatre16"></li>
+                    <input id="16quatre16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17quatre17"></li>
+                    <input id="17quatre17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8cinq8"></li>
+                    <input id="8cinq8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9cinq9"></li>
+                    <input id="9cinq9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10cinq10"></li>
+                    <input id="10cinq10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11cinq11"></li>
+                    <input id="11cinq11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12cinq12"></li>
+                    <input id="12cinq127nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13cinq13"></li>
+                    <input id="13cinq13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14cinq14"></li>
+                    <input id="14cinq14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15cinq15"></li>
+                    <input id="15cinq15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16cinq16"></li>
+                    <input id="16cinq16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17cinq17"></li>
+                    <input id="17cinq17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8six8"></li>
+                    <input id="8six8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9six9"></li>
+                    <input id="9six9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10six10"></li>
+                    <input id="10six10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11six11"></li>
+                    <input id="11six11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12six12"></li>
+                    <input id="12six12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13six13"></li>
+                    <input id="13six13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14six14"></li>
+                    <input id="14six14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15six15"></li>
+                    <input id="15six15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16six16"></li>
+                    <input id="16six16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17six17"></li>
+                    <input id="17six17nbPlace" type="hidden" >
+                </ul>
+                <ul class="time-slot">
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="8sept8"></li>
+                    <input id="8sept8nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="9sept9"></li>
+                    <input id="9sept9nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="10sept10"></li>
+                    <input id="10sept10nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="11sept11"></li>
+                    <input id="11sept11nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="12sept12"></li>
+                    <input id="12sept12nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="13sept13"></li>
+                    <input id="13sept13nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="14sept14"></li>
+                    <input id="14sept14nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="15sept15"></li>
+                    <input id="15sept15nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="16sept16"></li>
+                    <input id="16sept16nbPlace" type="hidden" >
+                    <li class="time-slot-item" onclick="getIdClick(this.id)" id="17sept17"></li>
+                    <input id="17sept17nbPlace" type="hidden" >
+                </ul>
 
 
-<script>
-    var listHoraires = []
-</script>
-<g:each in="${getByHoraire}" var="r" id="1">
-    <g:if test="${r.'placeRestantes' == null}">
-        <script>
-            listHoraires.push(${magasinInstance.placeTotale})
-        </script>
-    </g:if>
-    <g:else>
-        <script>
-            listHoraires.push(${r.'placeRestantes'})
-        </script>
-    </g:else>
-</g:each>
+                <script>
+                    var listHoraires = []
+                </script>
+                <g:each in="${getByHoraire}" var="r" id="1">
+                    <g:if test="${r.'placeRestantes' == null}">
+                        <script>
+                            listHoraires.push(${magasinInstance.placeTotale})
+                        </script>
+                    </g:if>
+                    <g:else>
+                        <script>
+                            listHoraires.push(${r.'placeRestantes'})
+                        </script>
+                    </g:else>
+                </g:each>
 
-            <script>
-                console.log("Liste horaire : " + listHoraires)
-            </script>
+                <script>
+                    console.log("Liste horaire : " + listHoraires)
+                </script>
 
 
 
-            <g:each in="${searchBar}" var="r" id="1">
-                uuu
-                uu
-                u
-                        ${r.'nom'}
-            </g:each>
+                <g:each in="${searchBar}" var="r" id="1">
+                    uuu
+                    uu
+                    u
+                    ${r.'nom'}
+                </g:each>
 
-            <script>
+                <script>
 
-                for (let heure = 8; heure < 18; heure++) {
-                    let heurePlusTrente = heure+1;
-                    var date = new Date();
-                    if(date.getHours()+1 > heure ) {
-                        console.log('Heure dépassée !!')
-                        let text = heure + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let variable = heure+"prem"+heure
-                        document.getElementById(variable).innerHTML = text;
-                        document.getElementById(variable).setAttribute('value', heure + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        if(listHoraires[heure-8] === 0) {
+                    for (let heure = 8; heure < 18; heure++) {
+                        let heurePlusTrente = heure+1;
+                        var date = new Date();
+                        if(date.getHours()+1 > heure ) {
+                            console.log('Heure dépassée !!')
                             let text = heure + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
                             let variable = heure+"prem"+heure
-                            let nbPlace = heure-1
-                            let setNbPlace = nbPlace+"prem"+nbPlace+"nbPlace"
-                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
                             document.getElementById(variable).innerHTML = text;
                             document.getElementById(variable).setAttribute('value', heure + ' ' + heurePlusTrente);
                             var btnCopy = document.getElementById(variable);
@@ -343,264 +336,279 @@ IF CONDITION POUR LE PREMIERJOUR : si heureactuelle > heure affichés, griser la
                             btnCopy.onclick = null;
                             document.getElementById(variable).style.cssText = 'background-color:#C9C9C9;';
                         }else {
-                            let setNbPlace = heure+"prem"+heure+"nbPlace"
-                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                            let text = heure + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                            let variable = heure+"prem"+heure
-                            document.getElementById(variable).innerHTML = text;
-                            document.getElementById(variable).setAttribute('value', heure + ' ' + heurePlusTrente);
+                            if(listHoraires[heure-8] === 0) {
+                                let text = heure + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                                let variable = heure+"prem"+heure
+                                let nbPlace = heure-1
+                                let setNbPlace = nbPlace+"prem"+nbPlace+"nbPlace"
+                                document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                                document.getElementById(variable).innerHTML = text;
+                                document.getElementById(variable).setAttribute('value', heure + ' ' + heurePlusTrente);
+                                var btnCopy = document.getElementById(variable);
+                                btnCopy.className += " disabled";
+                                btnCopy.onclick = null;
+                                document.getElementById(variable).style.cssText = 'background-color:#C9C9C9;';
+                            }else {
+                                let setNbPlace = heure+"prem"+heure+"nbPlace"
+                                document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                                let text = heure + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                                let variable = heure+"prem"+heure
+                                document.getElementById(variable).innerHTML = text;
+                                document.getElementById(variable).setAttribute('value', heure + ' ' + heurePlusTrente);
+                            }
                         }
                     }
-                }
 
-                for (let heure = 18; heure < 28; heure++) {
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 10 ;
-                        let text = heure - 10 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-10
-                        let variable1 = heuremoinsDix + "deux" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-10 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-10
-                        let setNbPlace = nbPlace+"deux"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 10 ;
-                        let text = heure - 10 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-10
-                        let variable1 = heuremoinsDix + "deux" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-10 + ' ' + heurePlusTrente);
+                    for (let heure = 18; heure < 28; heure++) {
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 10 ;
+                            let text = heure - 10 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-10
+                            let variable1 = heuremoinsDix + "deux" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-10 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-10
+                            let setNbPlace = nbPlace+"deux"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 10 ;
+                            let text = heure - 10 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-10
+                            let variable1 = heuremoinsDix + "deux" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-10 + ' ' + heurePlusTrente);
+                        }
                     }
-                }
 
-                for (let heure = 28; heure < 38; heure++) {
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 20 ;
-                        let text = heure - 20 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-20
-                        let variable1 = heuremoinsDix + "trois" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-20 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-20
-                        let setNbPlace = nbPlace+"trois"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 20 ;
-                        let text = heure - 20 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-20
-                        let variable1 = heuremoinsDix + "trois" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-20 + ' ' + heurePlusTrente);
+                    for (let heure = 28; heure < 38; heure++) {
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 20 ;
+                            let text = heure - 20 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-20
+                            let variable1 = heuremoinsDix + "trois" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-20 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-20
+                            let setNbPlace = nbPlace+"trois"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 20 ;
+                            let text = heure - 20 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-20
+                            let variable1 = heuremoinsDix + "trois" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-20 + ' ' + heurePlusTrente);
+                        }
                     }
-                }
 
-                for (let heure = 38; heure < 48; heure++) {
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 30 ;
-                        let text = heure - 30 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-30
-                        let variable1 = heuremoinsDix + "quatre" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-30 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-30
-                        let setNbPlace = nbPlace+"quatre"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 30 ;
-                        let text = heure - 30 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-30
-                        let variable1 = heuremoinsDix + "quatre" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-30 + ' ' + heurePlusTrente);
-                    }
-                }
-
-
-                for (let heure = 48; heure < 58; heure++) {
-
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 40 ;
-                        let text = heure - 40 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-40
-                        let variable1 = heuremoinsDix + "cinq" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-40 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-40
-                        let setNbPlace = nbPlace+"six"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 40 ;
-                        let text = heure - 40 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-40
-                        let variable1 = heuremoinsDix + "cinq" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-40 + ' ' + heurePlusTrente);
+                    for (let heure = 38; heure < 48; heure++) {
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 30 ;
+                            let text = heure - 30 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-30
+                            let variable1 = heuremoinsDix + "quatre" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-30 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-30
+                            let setNbPlace = nbPlace+"quatre"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 30 ;
+                            let text = heure - 30 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-30
+                            let variable1 = heuremoinsDix + "quatre" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-30 + ' ' + heurePlusTrente);
+                        }
                     }
 
 
-                }
+                    for (let heure = 48; heure < 58; heure++) {
 
-                for (let heure = 58; heure < 68; heure++) {
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 40 ;
+                            let text = heure - 40 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-40
+                            let variable1 = heuremoinsDix + "cinq" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-40 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-40
+                            let setNbPlace = nbPlace+"six"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 40 ;
+                            let text = heure - 40 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-40
+                            let variable1 = heuremoinsDix + "cinq" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-40 + ' ' + heurePlusTrente);
+                        }
 
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 50 ;
-                        let text = heure - 50 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-50
-                        let variable1 = heuremoinsDix + "six" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-50 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-50
-                        let setNbPlace = nbPlace+"six"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 50 ;
-                        let text = heure - 50 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-50
-                        let variable1 = heuremoinsDix + "six" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-50 + ' ' + heurePlusTrente);
+
                     }
 
-                }
+                    for (let heure = 58; heure < 68; heure++) {
 
-                for (let heure = 68; heure < 78; heure++) {
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 50 ;
+                            let text = heure - 50 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-50
+                            let variable1 = heuremoinsDix + "six" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-50 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-50
+                            let setNbPlace = nbPlace+"six"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 50 ;
+                            let text = heure - 50 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-50
+                            let variable1 = heuremoinsDix + "six" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-50 + ' ' + heurePlusTrente);
+                        }
 
-                    if(listHoraires[heure-8] === 0) {
-                        let heurePlusTrente = heure + 1 - 60;
-                        let text = heure - 60 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-60
-                        let variable1 = heuremoinsDix + "sept" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-60 + ' ' + heurePlusTrente);
-                        var btnCopy = document.getElementById(variable1);
-                        btnCopy.className += " disabled";
-                        btnCopy.onclick = null;
-                        document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
-                    }else {
-                        let nbPlace = heure-60
-                        let setNbPlace = nbPlace+"sept"+nbPlace+"nbPlace"
-                        document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
-                        let heurePlusTrente = heure + 1 - 60;
-                        let text = heure - 60 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
-                        let heuremoinsDix = heure-60
-                        let variable1 = heuremoinsDix + "sept" + heuremoinsDix
-                        document.getElementById(variable1).innerHTML = text;
-                        document.getElementById(variable1).setAttribute('value', heure-60 + ' ' + heurePlusTrente);
                     }
 
-                }
-            </script>
+                    for (let heure = 68; heure < 78; heure++) {
+
+                        if(listHoraires[heure-8] === 0) {
+                            let heurePlusTrente = heure + 1 - 60;
+                            let text = heure - 60 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-60
+                            let variable1 = heuremoinsDix + "sept" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-60 + ' ' + heurePlusTrente);
+                            var btnCopy = document.getElementById(variable1);
+                            btnCopy.className += " disabled";
+                            btnCopy.onclick = null;
+                            document.getElementById(variable1).style.cssText = 'background-color:#C9C9C9;';
+                        }else {
+                            let nbPlace = heure-60
+                            let setNbPlace = nbPlace+"sept"+nbPlace+"nbPlace"
+                            document.getElementById(setNbPlace).setAttribute('value', listHoraires[heure-8]);
+                            let heurePlusTrente = heure + 1 - 60;
+                            let text = heure - 60 + ':00' + ' - ' + heurePlusTrente + ':00' + ' (' + listHoraires[heure-8] + ' places) '
+                            let heuremoinsDix = heure-60
+                            let variable1 = heuremoinsDix + "sept" + heuremoinsDix
+                            document.getElementById(variable1).innerHTML = text;
+                            document.getElementById(variable1).setAttribute('value', heure-60 + ' ' + heurePlusTrente);
+                        }
+
+                    }
+                </script>
+            </div>
         </div>
+
+
+        <g:each in="${results}" var="r" id="1">
+            <g:if test="${r.'ouvertLeMidi' == '0'}">
+                <script type="text/javascript">
+                    var btnCopy = document.getElementById("12prem12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12prem12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12prem12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12deux12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12deux12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12deux12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12trois12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12trois12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12trois12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12quatre12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12quatre12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12quatre12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12cinq12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12cinq12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12cinq12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12six12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12six12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12six12").innerHTML = '12:00 - 13h00 : Fermé'
+
+                    btnCopy = document.getElementById("12sept12");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("12sept12").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("12sept12").innerHTML = '12:00 - 13h00 : Fermé'
+
+
+                    btnCopy = document.getElementById("13prem13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13prem13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13prem13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13deux13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13deux13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13deux13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13trois13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13trois13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13trois13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13quatre13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13quatre13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13quatre13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13cinq13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13cinq13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13cinq13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13six13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13six13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13six13").innerHTML = '13:00 - 14h00 : Fermé'
+                    btnCopy = document.getElementById("13sept13");
+                    btnCopy.className += " disabled";
+                    btnCopy.onclick = null;
+                    document.getElementById("13sept13").style.cssText = 'background-color:#C9C9C9;';
+                    document.getElementById("13sept13").innerHTML = '13:00 - 14h00 : Fermé'
+                </script>
+            </g:if>
+        </g:each>
+
     </div>
+</g:else>
 
-
-    <g:each in="${results}" var="r" id="1">
-        <g:if test="${r.'ouvertLeMidi' == '0'}">
-            <script type="text/javascript">
-                var btnCopy = document.getElementById("12prem12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12prem12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12prem12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12deux12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12deux12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12deux12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12trois12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12trois12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12trois12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12quatre12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12quatre12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12quatre12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12cinq12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12cinq12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12cinq12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12six12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12six12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12six12").innerHTML = '12:00 - 13h00 : Fermé'
-
-                btnCopy = document.getElementById("12sept12");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("12sept12").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("12sept12").innerHTML = '12:00 - 13h00 : Fermé'
-
-
-                btnCopy = document.getElementById("13prem13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13prem13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13prem13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13deux13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13deux13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13deux13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13trois13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13trois13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13trois13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13quatre13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13quatre13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13quatre13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13cinq13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13cinq13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13cinq13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13six13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13six13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13six13").innerHTML = '13:00 - 14h00 : Fermé'
-                btnCopy = document.getElementById("13sept13");
-                btnCopy.className += " disabled";
-                btnCopy.onclick = null;
-                document.getElementById("13sept13").style.cssText = 'background-color:#C9C9C9;';
-                document.getElementById("13sept13").innerHTML = '13:00 - 14h00 : Fermé'
-            </script>
-        </g:if>
-    </g:each>
-
-</div>
 <style type="text/css">
 .time-picker {
     margin: 10px;
@@ -1008,7 +1016,6 @@ footer {
     function secondForm() {
         if (listId.length > 1) {
             testFonction()
-            alert("ON EST DANS LA FONCTION")
             var x = document.getElementById(listId[1]).value+1;
             var y = document.getElementById(listId[0]).value+1;
             console.log('ID jour : ' + getOnlyId(listId)[1])

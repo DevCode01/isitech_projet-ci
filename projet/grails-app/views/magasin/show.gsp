@@ -61,81 +61,90 @@ MENU NAVBAR
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="text-center" style="padding-top: 100px; padding-left: 20px;">
-                <div class="card" style="width: 24rem;">
-                    <img class="card-img-top" id="testImage" width="300" height="300" alt="Logo du magasin">
-                    <div class="card-body">
-                        <h5 class="card-title">${magasinInstance?.nom}</h5>
-                        <script>
-                            var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(${fieldValue(bean: magasinInstance, field: "imageMagasin") })));
-                            document.getElementById("testImage").setAttribute('src', "data:image/png;base64,"+base64String);
-                        </script>
-                        <p class="card-text">Jauge totale du magasin : ${magasinInstance?.placeTotale} places</p>
-                        <p class="card-text">${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")} ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}</p>
-                        <p class="card-text">De ${fieldValue(bean: magasinInstance, field: "horaireOuverture") } à ${fieldValue(bean: magasinInstance, field: "horaireFermeture")}.
-                        <g:if test="${fieldValue(bean: magasinInstance, field: "ouvertLeMidi") == '1'}">
-                            <br><b>Ouvert entre 12 et 14h !</b><br>
-                        </g:if>
-                        <g:else>
-                            <br><b>Fermé entre 12 et 14h !</b><br>
-                        </g:else>
-                           </p>
-                        <g:link  class="btn btn-primary" action="listeResa" id="${fieldValue(bean: magasinInstance, field: "id")}">
-                            ${message(code: 'Je découvre les créneaux disponibles', default: 'Je découvre les créneaux disponibles')}
-                        </g:link>
+<g:if test="${magasinInstance == null}">
+    <div class="text-center" style="padding-top: 100px; padding-left: 20px;">
+        Oup's, il semblerait qu'il n'y est rien d'intéressant ici .. on fait marche arrière ?
+    </div>
+</g:if>
+<g:else>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="text-center" style="padding-top: 100px; padding-left: 20px;">
+                    <div class="card" style="width: 24rem;">
+                        <img class="card-img-top" id="testImage" width="300" height="300" alt="Logo du magasin">
+                        <div class="card-body">
+                            <h5 class="card-title">${magasinInstance?.nom}</h5>
+                            <script>
+                                var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(${fieldValue(bean: magasinInstance, field: "imageMagasin") })));
+                                document.getElementById("testImage").setAttribute('src', "data:image/png;base64,"+base64String);
+                            </script>
+                            <p class="card-text">Jauge totale du magasin : ${magasinInstance?.placeTotale} places</p>
+                            <p class="card-text">${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")} ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}</p>
+                            <p class="card-text">De ${fieldValue(bean: magasinInstance, field: "horaireOuverture") } à ${fieldValue(bean: magasinInstance, field: "horaireFermeture")}.
+                                <g:if test="${fieldValue(bean: magasinInstance, field: "ouvertLeMidi") == '1'}">
+                                    <br><b>Ouvert entre 12 et 14h !</b><br>
+                                </g:if>
+                                <g:else>
+                                    <br><b>Fermé entre 12 et 14h !</b><br>
+                                </g:else>
+                            </p>
+                            <g:link  class="btn btn-primary" action="listeResa" id="${fieldValue(bean: magasinInstance, field: "id")}">
+                                ${message(code: 'Je découvre les créneaux disponibles', default: 'Je découvre les créneaux disponibles')}
+                            </g:link>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm" style="padding-top: 100px; padding-left: 20px;">
-            <div id="map"></div>
+            <div class="col-sm" style="padding-top: 100px; padding-left: 20px;">
+                <div id="map"></div>
 
-            <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
-            <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+                <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+                <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 
-            <script>
-                // TO MAKE THE MAP APPEAR YOU MUST
-                // ADD YOUR ACCESS TOKEN FROM
-                // https://account.mapbox.com
-                mapboxgl.accessToken = 'pk.eyJ1IjoibWlndWVsMTciLCJhIjoiY2txemJuOXN1MDVoMjJ2bXRvdTd1cHRsMiJ9.KcVg68bMYFYsWYG4TaMELQ';
-                var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-                mapboxClient.geocoding
-                    .forwardGeocode({
-                        query: '${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")}, ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}',
-                        autocomplete: false,
-                        limit: 1
-                    })
-                    .send()
-                    .then(function (response) {
-                        if (
-                            response &&
-                            response.body &&
-                            response.body.features &&
-                            response.body.features.length
-                        ) {
-                            var feature = response.body.features[0];
+                <script>
+                    // TO MAKE THE MAP APPEAR YOU MUST
+                    // ADD YOUR ACCESS TOKEN FROM
+                    // https://account.mapbox.com
+                    mapboxgl.accessToken = 'pk.eyJ1IjoibWlndWVsMTciLCJhIjoiY2txemJuOXN1MDVoMjJ2bXRvdTd1cHRsMiJ9.KcVg68bMYFYsWYG4TaMELQ';
+                    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+                    mapboxClient.geocoding
+                        .forwardGeocode({
+                            query: '${fieldValue(bean: magasinInstance, field: "adresse") }, ${fieldValue(bean: magasinInstance.ville, field: "codePostal")}, ${fieldValue(bean: magasinInstance.ville, field: "nomVille")}',
+                            autocomplete: false,
+                            limit: 1
+                        })
+                        .send()
+                        .then(function (response) {
+                            if (
+                                response &&
+                                response.body &&
+                                response.body.features &&
+                                response.body.features.length
+                            ) {
+                                var feature = response.body.features[0];
 
-                            var map = new mapboxgl.Map({
-                                container: 'map',
-                                style: 'mapbox://styles/mapbox/streets-v11',
-                                center: feature.center,
-                                zoom: 12
-                            });
+                                var map = new mapboxgl.Map({
+                                    container: 'map',
+                                    style: 'mapbox://styles/mapbox/streets-v11',
+                                    center: feature.center,
+                                    zoom: 12
+                                });
 
 // Create a marker and add it to the map.
-                            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-                        }
-                    });
-            </script>
+                                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+                            }
+                        });
+                </script>
+            </div>
         </div>
+
+
+
     </div>
+</g:else>
 
 
-
-</div>
 
 </body>
 <!-- Footer -->

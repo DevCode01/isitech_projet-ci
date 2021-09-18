@@ -15,6 +15,10 @@ class User {
         this.role = 0
     }
 
+    int getRole() {
+        return this.role;
+    }
+
     static mapping = {
         table 'user'
         version false
