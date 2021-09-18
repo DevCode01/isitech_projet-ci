@@ -25,6 +25,7 @@ class MagasinController {
     def index() {
         def magasinList = Magasin.list()
         [magasinList: magasinList]
+
     }
 
     def main() {
